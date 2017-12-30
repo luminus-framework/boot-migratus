@@ -4,9 +4,7 @@ MIGRATE ALL THE THINGS!
 
 A boot plugin for the [Migratus](https://github.com/yogthos/migratus) library.
 
-```
-[luminus/boot-migratus "1.0"] ;;latest version
-```
+[![Clojars Project](https://img.shields.io/clojars/v/luminus/boot-migratus.svg)](https://clojars.org/luminus/boot-migratus)
 
 A general migration framework, with an implementation for database migrations.
 
