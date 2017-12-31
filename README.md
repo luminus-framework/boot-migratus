@@ -81,8 +81,26 @@ CREATE TABLE IF NOT EXISTS foo(id BIGINT);
    ```
 
    See the docstrings of each function for more details.
+   
+## Specifying Config as a Function
 
-## License
+The `config` option to a `migratus` task can also be specified as a function
+that will be resolved to a map when the task is called. This is useful if the
+config depends on environment variables or such that won't be changed until 
+after the task is defined.
+
+For example, when using [environ](https://github.com/weavejester/environ):
+```clojure
+(task-options!
+  migratus {:config (fn [] {:store :database
+                            :migration-dir "migrations"
+                            :db (env :database-url)})})
+```
+
+This way a different task in the pipeline can define the the key `:database-url`
+in environ, and migratus will still read it properly.
+
+# License
 
 Copyright © 2017 Daniel Manila
 
