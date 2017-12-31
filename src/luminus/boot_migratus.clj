@@ -56,15 +56,23 @@
   reset    Bring down all migrations, then bring them all back up.
   pending  Return a list of pending migrations.
 
+  config should be either a map of config values or a function that takes no
+  arguments and resolves to a map.
+
   If run without specifying a command, the migrate command will execute."
-  [c command VAL str "The migratus command to run. Defaults to migrate."
-   o options VAL edn "Options to be passed to the command. See specific command for details."
-   m config  VAL edn "The config map. See migratus documentation."]
-  (case command
-    "up" (up config options)
-    "down" (down config options)
-    "rollback" (rollback config)
-    "pending" (pending config)
-    "create" (create config options)
-    "reset" (reset config)
-    (migrate config)))
+  [c command CMD str "The migratus command to run. Defaults to migrate."
+   o options OPT edn "Options to be passed to the command. See specific command for details."
+   m config CONFIG edn "The config map. See migratus documentation."]
+  (boot/with-pass-thru _
+    (let [con (if (map? config)
+                config
+                (config))]
+    ;; TODO use clojure.spec to create a decent error message if isn't ifn or map.
+      (case command
+        "up" (up con options)
+        "down" (down con options)
+        "rollback" (rollback con)
+        "pending" (pending con)
+        "create" (create con options)
+        "reset" (reset con)
+        (migrate con)))))

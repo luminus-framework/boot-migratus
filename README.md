@@ -25,7 +25,7 @@ Migratus does not use a single global version for a store. It considers each mig
 
 ```clojure
 (set-env! :dependencies '[[migratus "1.0.3"]
-                          [luminus/boot-migratus "1.0" :scope "test"]])
+                          [luminus/boot-migratus "1.0.1" :scope "test"]])
                           
 (require '[luminus.boot-migratus :refer [migratus]])
 ```

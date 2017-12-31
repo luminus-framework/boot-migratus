@@ -1,5 +1,5 @@
 (def project 'luminus/boot-migratus)
-(def version "1.0")
+(def version "1.0.1")
 
 (set-env! :resource-paths #{"src"}
           :dependencies   '[[org.clojure/clojure "RELEASE" :scope "provided"]
