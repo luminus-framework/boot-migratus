@@ -34,13 +34,13 @@ Migratus does not use a single global version for a store. It considers each mig
 
 ```
 (task-options!
-  migratus {:store :database
-            :migration-dir "migrations"
-            :db {:classname "com.mysql.jdbc.Driver"
-                :subprotocol "mysql"
-                :subname "//localhost/migratus"
-                :user "root"
-                :password ""}}})
+  migratus {:config {:store :database
+                     :migration-dir "migrations"
+                     :db {:classname "com.mysql.jdbc.Driver"
+                          :subprotocol "mysql"
+                          :subname "//localhost/migratus"
+                          :user "root"
+                          :password ""}}})
 ```
 
 - Add the following code to “src/migrations/20111206154000-create-foo-table.up.sql”
