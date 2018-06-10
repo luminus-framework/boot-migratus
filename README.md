@@ -1,5 +1,7 @@
 # boot-migratus
 
+**Note:** This project has been archived and is not being maintained or updated. It very well may be broken. Look into using [Luminus Migrations](https://github.com/luminus-framework/luminus-migrations) instead, it's very easy to wrap into a boot task.
+
 MIGRATE ALL THE THINGS!
 
 A boot plugin for the [Migratus](https://github.com/yogthos/migratus) library.
